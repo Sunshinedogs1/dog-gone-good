@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pawsitive Trainer — Basic Obedience</title>
+  <meta name="description" content="Interactive dog training app for basic obedience using positive reinforcement." />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header" role="banner">
+    <h1 aria-label="App title">🐾 Pawsitive Trainer</h1>
+    <div class="dog-profile" aria-live="polite">
+      <label for="dogName" class="sr-only">Dog name</label>
+      <input id="dogName" type="text" placeholder="Your dog's name" />
+      <button id="saveDogName" aria-label="Save dog name">Save</button>
+      <span id="dogNameDisplay"></span>
+    </div>
+    <nav aria-label="Primary tabs">
+      <button class="tab-button active" data-tab="home">Home</button>
+      <button class="tab-button" data-tab="modules">Modules</button>
+      <button class="tab-button" data-tab="session">Session</button>
+      <button class="tab-button" data-tab="progress">Progress</button>
+      <button class="tab-button" data-tab="settings">Settings</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="tab active">
+      <h2>Welcome</h2>
+      <p>Build solid basics with short, fun sessions. Choose a module and tap <strong>Start Session</strong>. Mark (click) the moment your dog does the behavior, then reward. Keep sessions ~1–2 minutes.</p>
+      <div class="quick-actions">
+        <select id="quickModule"></select>
+        <button id="startQuickSession">Start Session</button>
+        <button id="playClick">Clicker</button>
+      </div>
+      <div id="badges" class="badges" aria-live="polite" aria-label="Achievement badges"></div>
+    </section>
+
+    <section id="modules" class="tab">
+      <h2>Training Modules</h2>
+      <div id="moduleList" class="module-list"></div>
+    </section>
+
+    <section id="session" class="tab">
+      <h2>Practice Session</h2>
+      <div class="session-card">
+        <label for="sessionModule">Module</label>
+        <select id="sessionModule"></select>
+
+        <label for="sessionDuration">Duration (seconds)</label>
+        <input id="sessionDuration" type="number" min="30" max="600" value="90" />
+
+        <div class="session-controls">
+          <button id="sessionStart">Start</button>
+          <button id="sessionStop" disabled>Stop</button>
+          <button id="sessionMark" disabled>Mark (Click)</button>
+        </div>
+
+        <div class="session-stats" aria-live="polite">
+          <div>⏱️ Time left: <span id="timeLeft">90</span>s</div>
+          <div>✅ Successful reps: <span id="repCount">0</span></div>
+        </div>
+
+        <label for="sessionNotes">Notes (criteria met, distractions, etc.)</label>
+        <textarea id="sessionNotes" rows="3" placeholder="E.g., 8/10 sits with 1s latency; worked near window."></textarea>
+      </div>
+    </section>
+
+    <section id="progress" class="tab">
+      <h2>Progress</h2>
+      <div class="progress-summary">
+        <div id="streak">🔥 Streak: 0 days</div>
+        <div id="totalSessions">📊 Total sessions: 0</div>
+      </div>
+      <div id="history" class="history"></div>
+      <div class="export">
+        <button id="exportData">Export Data (JSON)</button>
+        <button id="clearData">Clear Data</button>
+      </div>
+    </section>
+
+    <section id="settings" class="tab">
+      <h2>Settings</h2>
+      <div class="settings-grid">
+        <div>
+          <label for="themeSelect">Theme</label>
+          <select id="themeSelect">
+            <option value="system">System</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="high-contrast">High Contrast</option>
+          </select>
+        </div>
+        <div>
+          <label for="fontScale">Font size</label>
+          <input id="fontScale" type="range" min="90" max="140" value="100" />
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" id="enableHints" checked /> Show coaching hints
+          </label>
+        </div>
+      </div>
+
+      <details>
+        <summary>About & Guidance</summary>
+        <p>Use positive reinforcement, marking the exact moment your dog does the desired behavior. Keep criteria clear and raise difficulty gradually (distance, duration, distraction). End sessions before your dog loses interest.</p>
+        <ul>
+          <li>Marker = click sound or "Yes!"</li>
+          <li>Reward immediately after the marker</li>
+          <li>Split behaviors into tiny steps; success drives progress</li>
+        </ul>
+      </details>
+    </section>
+  </main>
+
+  <footer class="app-footer" role="contentinfo">
+    <small>© 2025 Pawsitive Trainer — Basic Obedience. Works offline; your data stays on this device.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "Pawsitive Trainer",
+  "short_name": "Pawsitive",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0891b2",
+  "description": "Interactive dog training app for basic obedience built on positive reinforcement.",
+  "icons": []
+}

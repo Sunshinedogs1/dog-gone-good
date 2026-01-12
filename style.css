@@ -1,0 +1,8 @@
+/* minimal styles (same as before, truncated) */
+:root { --bg:#0f172a; --card:#111827; --text:#f8fafc; --muted:#94a3b8; --accent:#22c55e; --accent-2:#0891b2; --danger:#ef4444; }
+body { margin:0; background:var(--bg); color:var(--text); }
+.app-header, .app-footer { padding:1rem; }
+.tab { display:none; }
+.tab.active { display:block; }
+.module-card, .session-card { background:var(--card); border:1px solid #1f2937; border-radius:.8rem; padding:.75rem; }
+.badge { display:inline-flex; gap:.25rem; border:1px dashed #334155; padding:.35rem .5rem; border-radius:.5rem; color:#f59e0b; background:#1a2234; }
